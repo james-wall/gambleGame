@@ -120,7 +120,7 @@ class Window(Frame):
 
 		if personIndex  < numPeople - 1:
 			# todo add joke based on money amount
-			self.var.set('Let\'s here it for Contestant #' + str(personIndex + 1) + ', ' + names[personIndex][0] + '!\n\n\n Now who\'s next?')
+			self.var.set('Let\'s hear it for Contestant #' + str(personIndex + 1) + ', ' + names[personIndex][0] + '!\n\n\n Now who\'s next?')
 			personIndex += 1
 			gameStep = 1
 		else:
@@ -129,6 +129,7 @@ class Window(Frame):
 
 	def getRiskLevel(self):
 		global gameStep
+		global riskLevel
 		try:
 			riskLevel = int(str(self.entry.get()))
 			if riskLevel > 10 or riskLevel < 1:
@@ -150,7 +151,9 @@ class Window(Frame):
 		personTwo = random.choice(names) #tuple2
 
 		moneyOwed = riskLevel/10 * personOne[1]
+		print("money owed 1 " + str(moneyOwed))
 		moneyOwedString = "%.2f" % moneyOwed
+		print("money owed 2 " + moneyOwedString)
 
 		message = personTwo[0] + ' won! ' + personOne[0] + ' lost :/ ... ' + personOne[0] +' owes ' + personTwo[0] + ' $' + moneyOwedString + '!\n\n Thanks for playing!\n\n (press enter one more time to exit)'
 
